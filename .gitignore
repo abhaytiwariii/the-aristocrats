@@ -1,0 +1,36 @@
+# ENV
+.env
+.env.local
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Node
+node_modules/
+.next/
+out/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store

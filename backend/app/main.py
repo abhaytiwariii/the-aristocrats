@@ -2,12 +2,17 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.database import Base, engine
+from app import models
+from app.routes import issues
 
 app = FastAPI(
     title="My API",
     description="FastAPI backend service",
     version="1.0.0"
 )
+
+Base.metadata.create_all(bind=engine)
 
 # CORS configuration (important if frontend is separate like Next.js)
 app.add_middleware(
@@ -18,12 +23,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
-async def root():
-    return {"message": "API is running"}
+def root():
+    return {"message": "FixMyRoad API running"}
 
 
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
+
+app.include_router(issues.router)
