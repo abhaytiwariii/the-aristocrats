@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2E7D32;
+  --color-secondary: #1976D2;
+  --color-accent: #81C784;
+  --color-sidebar: #F9FAFB;
+  --color-card: #FFFFFF;
+  --color-danger: #DC2626;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  --color-success: #10B981;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all cursor-pointer;
+  }
+  
+  .nav-item-active {
+    @apply bg-green-100 text-green-800 border-r-4 border-green-800;
+  }
+
+  .nav-item-inactive {
+    @apply text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  .hidden-section {
+    @apply hidden;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .map-placeholder {
+    background: url('https://placehold.co/800x400/e2e8f0/64748b?text=Interactive+Map+View') center/cover;
+  }
+}
